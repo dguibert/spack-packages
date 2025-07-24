@@ -1,1 +1,10 @@
+. base instruction
+
+  Setup your .git/config
+  git config --add remote.dguibert.fetch refs/insns/*:refs/insns/*
+  git config --add remote.dguibert.fetch +refs/heads/dg/*:refs/heads/dg/*
+
+  use gh to get branch form a PR
+  gh pr checkout XXXX
+
 base spack/develop
