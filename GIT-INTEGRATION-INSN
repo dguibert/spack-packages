@@ -8,3 +8,5 @@
   gh pr checkout XXXX
 
 base spack/develop
+
+merge dg/openmpi-oshmem-disable
