@@ -441,7 +441,11 @@ class PyNumpy(PythonPackage):
 
         # Tell numpy where to find BLAS/LAPACK libraries
         with open("site.cfg", "w") as f:
-            if "^intel-oneapi-mkl" in spec:
+            if (
+                "^intel-mkl" in spec
+                or "^intel-parallel-studio+mkl" in spec
+                or "^intel-oneapi-mkl" in spec
+            ):
                 f.write("[mkl]\n")
                 # FIXME: as of @1.11.2, numpy does not work with separately
                 # specified threading and interface layers. A workaround is a
@@ -545,7 +549,11 @@ class PyNumpy(PythonPackage):
         # https://github.com/numpy/numpy/pull/13132
         # https://numpy.org/doc/1.25/user/building.html#accelerated-blas-lapack-libraries
         # https://numpy.org/doc/1.25/user/building.html#blas
-        if spec["blas"].name == "intel-oneapi-mkl":
+        if (
+            spec["blas"].name == "intel-mkl"
+            or spec["blas"].name == "intel-parallel-studio"
+            or spec["blas"].name == "intel-oneapi-mkl"
+        ):
             blas = "mkl"
         elif spec["blas"].name == "blis" or spec["blas"].name == "amdblis":
             blas = "blis"
@@ -561,7 +569,11 @@ class PyNumpy(PythonPackage):
         env.set("NPY_BLAS_ORDER", blas)
 
         # https://numpy.org/doc/1.25/user/building.html#lapack
-        if spec["lapack"].name == "intel-oneapi-mkl":
+        if (
+            spec["lapack"].name == "intel-mkl"
+            or spec["lapack"].name == "intel-parallel-studio"
+            or spec["lapack"].name == "intel-oneapi-mkl"
+        ):
             lapack = "mkl"
         elif spec["lapack"].name == "openblas":
             lapack = "openblas"

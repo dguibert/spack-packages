@@ -121,8 +121,9 @@ class Hpcc(MakefilePackage):
                 lin_alg_libs.append(join_path(spec["fftw-api"].prefix.lib, "libsfftw_mpi.so"))
                 lin_alg_libs.append(join_path(spec["fftw-api"].prefix.lib, "libsfftw.so"))
 
-            elif self.spec.variants["fft"].value == "mkl" and spec.satisfies(
-                "^[virtuals=fftw-api] intel-oneapi-mkl"
+            elif (
+                self.spec.variants["fft"].value == "mkl"
+                and spec["fftw-api"].name in INTEL_MATH_LIBRARIES
             ):
                 mklroot = env["MKLROOT"]
                 self.config["@LAINC@"] += f" -I{join_path(mklroot, 'include/fftw')}"
