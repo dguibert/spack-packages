@@ -5,7 +5,10 @@ import re
 
 import llnl.util.tty as tty
 
-import spack.build_systems.compiler
+import spack_repo.builtin.build_systems.compiler
+from spack_repo.builtin.build_systems.oneapi import IntelOneApiPackage
+from spack_repo.builtin.build_systems.intel import IntelPackage
+
 from spack.package import *
 
 

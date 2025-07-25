@@ -4,6 +4,9 @@
 
 import sys
 
+from spack_repo.builtin.build_systems.oneapi import IntelOneApiPackage
+from spack_repo.builtin.build_systems.intel import IntelPackage
+
 from spack.package import *
 
 

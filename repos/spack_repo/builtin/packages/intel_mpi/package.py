@@ -2,8 +2,10 @@
 #
 # SPDX-License-Identifier: (Apache-2.0 OR MIT)
 
-from spack.package import *
+from spack_repo.builtin.build_systems.oneapi import IntelOneApiPackage
+from spack_repo.builtin.build_systems.intel import IntelPackage
 
+from spack.package import *
 
 @IntelOneApiPackage.update_description
 class IntelMpi(IntelPackage):
