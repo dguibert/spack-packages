@@ -202,8 +202,6 @@ class Elk(MakefilePackage):
                 config["SRC_FFT"] += " cfftifc_mkl.f90"
             cp = which("cp")
             mkl_prefix = spec["mkl"].prefix
-            if spec.satisfies("^intel-mkl"):
-                mkl_prefix = mkl_prefix.mkl
             cp(
                 join_path(mkl_prefix.include, "mkl_dfti.f90"),
                 join_path(self.build_directory, "src"),

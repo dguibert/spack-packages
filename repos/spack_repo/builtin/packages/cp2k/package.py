@@ -1122,7 +1122,7 @@ class CMakeBuilder(cmake.CMakeBuilder):
         lapack = spec["lapack"]
         blas = spec["blas"]
 
-        if blas.name in ["intel-mkl", "intel-parallel-studio", "intel-oneapi-mkl"]:
+        if blas.name == "intel-oneapi-mkl":
             if spec.satisfies("^[virtuals=fftw-api] intel-oneapi-mkl"):
                 args += ["-DCP2K_USE_FFTW3_WITH_MKL=ON"]
 
