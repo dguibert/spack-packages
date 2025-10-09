@@ -172,6 +172,9 @@ class Sirius(CMakePackage, CudaPackage, ROCmPackage):
     depends_on("amdblis threads=openmp", when="+openmp ^[virtuals=blas] amdblis")
     depends_on("blis threads=openmp", when="+openmp ^[virtuals=blas] blis")
     depends_on(
+        "intel-mkl threads=openmp", when="+openmp ^[virtuals=blas,lapack,fftw-api] intel-mkl"
+    )
+    depends_on(
         "intel-oneapi-mkl threads=openmp",
         when="+openmp ^[virtuals=blas,lapack,fftw-api] intel-oneapi-mkl",
     )
@@ -180,6 +183,7 @@ class Sirius(CMakePackage, CudaPackage, ROCmPackage):
         when="+scalapack ^[virtuals=blas,lapack,fftw-api] intel-oneapi-mkl",
     )
 
+    conflicts("intel-mkl", when="@7.6.0:")
     # MKLConfig.cmake introduced in 2021.3
     conflicts("intel-oneapi-mkl@:2021.2", when="^intel-oneapi-mkl")
 

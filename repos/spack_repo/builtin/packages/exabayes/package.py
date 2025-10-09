@@ -33,6 +33,8 @@ class Exabayes(AutotoolsPackage):
     conflicts("%gcc@:4.5.4, 7.1.0:", when="@:1.5.0")
     conflicts("%clang@:3.1")
     conflicts("^intel-oneapi-mpi", when="+mpi")
+    conflicts("^intel-mpi", when="+mpi")
+    conflicts("^intel-parallel-studio+mpi", when="+mpi")
     conflicts("^mvapich2", when="+mpi")
     conflicts("^spectrum-mpi", when="+mpi")
 

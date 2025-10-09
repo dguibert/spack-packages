@@ -298,7 +298,11 @@ class MakefileBuilder(makefile.MakefileBuilder):
                 "^[virtuals=mpi] hpcx-mpi"
             ):
                 env.set("ESMF_COMM", "openmpi")
-            elif spec.satisfies("^[virtuals=mpi] intel-oneapi-mpi"):
+            elif (
+                spec.satisfies("^[virtuals=mpi] intel-parallel-studio+mpi")
+                or spec.satisfies("^[virtuals=mpi] intel-mpi")
+                or spec.satisfies("^[virtuals=mpi] intel-oneapi-mpi")
+            ):
                 env.set("ESMF_COMM", "intelmpi")
             elif spec.satisfies("^[virtuals=mpi] mpt"):
                 # MPT is the HPE (SGI) variant of mpich
