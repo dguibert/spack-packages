@@ -11,4 +11,4 @@ base spack/develop
 
 merge dg/openmpi-oshmem-disable
 
-merge dg/restore-intel-compilers
+. merge dg/restore-intel-compilers
