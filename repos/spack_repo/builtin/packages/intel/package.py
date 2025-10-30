@@ -3,7 +3,7 @@
 # SPDX-License-Identifier: (Apache-2.0 OR MIT)
 import re
 
-import llnl.util.tty as tty
+from spack.package import tty
 
 import spack_repo.builtin.build_systems.compiler
 from spack_repo.builtin.build_systems.oneapi import IntelOneApiPackage
