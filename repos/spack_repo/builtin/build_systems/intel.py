@@ -9,8 +9,8 @@ import sys
 import tempfile
 import xml.etree.ElementTree as ElementTree
 
-import llnl.util.tty as tty
-from llnl.util.filesystem import (
+import spack.util.tty as tty
+from spack.util.filesystem import (
     HeaderList,
     LibraryList,
     ancestor,
