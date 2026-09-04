@@ -46,7 +46,10 @@ class Fds(MakefilePackage):
     )
 
     requires(
-        "^intel-oneapi-mkl", policy="one_of", msg="FDS builds require Intel oneAPI MKL library"
+        "^intel-mkl",
+        "^intel-oneapi-mkl",
+        policy="one_of",
+        msg="FDS builds require either Intel MKL or Intel oneAPI MKL library",
     )
 
     requires(
@@ -78,7 +81,7 @@ class Fds(MakefilePackage):
     @property
     def build_targets(self):
         spec = self.spec
-        mpi_mapping = {"openmpi": "ompi", "intel-oneapi-mpi": "impi"}
+        mpi_mapping = {"openmpi": "ompi", "intel-oneapi-mpi": "impi", "intel-mpi": "impi"}
         compiler_mapping = {"gcc": "gnu", "oneapi": "intel", "intel": "intel"}
         platform_mapping = {"linux": "linux", "darwin": "osx"}
         mpi_prefix = mpi_mapping[spec["mpi"].name]

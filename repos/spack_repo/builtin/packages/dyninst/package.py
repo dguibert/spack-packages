@@ -67,6 +67,7 @@ class Dyninst(CMakePackage):
         # package layout. Need to use tbb provided config instead.
         conflicts("^intel-tbb@2021.1:")
         conflicts("^intel-oneapi-tbb@2021.1:")
+        conflicts("^intel-parallel-studio")
 
     # See: https://github.com/dyninst/dyninst/pull/2304
     with when("@:13"):
