@@ -27,6 +27,7 @@ class Ldak(Package):
     depends_on("blas")
     depends_on("lapack")
     depends_on("openblas threads=openmp", when="^[virtuals=blas] openblas")
+    depends_on("intel-mkl threads=openmp", when="^[virtuals=blas] intel-mkl")
     depends_on("intel-oneapi-mkl threads=openmp", when="^[virtuals=blas] intel-oneapi-mkl")
     depends_on("glpk", when="+glpk")
 
